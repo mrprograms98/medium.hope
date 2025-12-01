@@ -204,16 +204,14 @@ main {
     .hamburger .bar{display:block;width:20px;height:2px;background:var(--text);margin:4px 0;border-radius:2px;transition:transform var(--transition),opacity var(--transition),background var(--transition)}
     /* open state */
 
-    
     .hamburger[aria-expanded="true"] .bar:nth-child(3){ transform: translateY(-6px) rotate(-45deg); background:var(--lavender-600)}
-  
 
 .mobile-nav {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: #ffffff; /* volledig wit */
+  background: var(--lavender); /* volledig wit */
   display: flex;
   flex-direction: column;
   padding: 80px 30px;
@@ -251,7 +249,7 @@ main {
 }
 
 .mobile-nav a:hover {
-  background: var(--lavender-soft);
+  background: var(--gold);
   color: var(--lavender-600);
   padding-left: 8px;
 }
@@ -1641,6 +1639,7 @@ window.addEventListener("load", function() {
 </script>
 </body>
 </html>
+
 
 
 
