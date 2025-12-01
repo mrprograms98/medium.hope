@@ -364,15 +364,10 @@ section:not(:last-of-type)::after {
   );
   opacity: 0.6;
 } /* increased spacing between sections */
-    .section-title{font-family:'Lora';font-size:18px;color:var(--lavender);margin-bottom:12px}
     .grid{display:grid;gap:20px}
-
-    .about-grid{grid-template-columns:1fr 420px;display:grid;gap:32px;align-items:start}
     .muted{color:var(--muted)}
-
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .features .card{min-height:170px;display:flex;flex-direction:column;gap:12px}
-    
     /* 🌙 Werkwijze-sectie met fadeende achtergrondbeelden */
 .features .card {
   position: relative;
@@ -451,28 +446,13 @@ section:not(:last-of-type)::after {
   text-shadow: 0 0 8px rgba(168,146,201,0.3);
 }
 /* Verwijder eventuele rand of border van body en footer */
-body {
-  margin: 0; /* Zorg dat er geen marge is rondom de pagina */
-  padding: 0;
-}
-/* ---------------------------------------- */
-/* 🌟 Luxe Contact Sectie */
-/* ---------------------------------------- */
+
 /* Contact form sectie */
 .contact-form-section .contact-form-card {
   max-width: 700px;       /* maakt de card groter */
   margin: 0 auto;         /* centreert de card */
   padding: 40px; 
   text-align: center;         /* iets meer padding binnenin */
-}
-
-/* Velden groter en gecentreerd */
-.contact-form input,
-.contact-form textarea {
-  width: 100%;            /* vul breedte van card */
-  padding: 18px;           /* grotere velden */
-  text-align: center;      /* tekst in het midden */
-  font-size: 16px;         /* iets grotere tekst */
 }
 
 /* Verhoog textarea hoogte */
@@ -625,7 +605,7 @@ body {
   font-size: 15px;
   background: white;
   transition: box-shadow .3s, border-color .3s;
-  
+  text-align: center;
 }
 
 .contact-form input:focus,
@@ -794,33 +774,6 @@ textarea, input {
   transform: translateX(4px);
 }
 
-/* Social icons */
-.socials {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.socials a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.9);
-  text-decoration: none;
-  color: var(--lavender-600);
-  font-size: 20px;
-  box-shadow: 0 6px 18px rgba(120,100,150,0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.socials a:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(120,100,150,0.1);
-}
-
 /* Bottom footer */
 .footer-bottom {
   margin-top: 50px;
@@ -859,7 +812,7 @@ gn:center}
     /* socials */
     .socials{display:flex;gap:12px}
     .socials a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.9);text-decoration:none;color:var(--lavender-600);box-shadow:0 6px 18px rgba(120,100,150,0.04);transition:transform var(--transition)}
-    .socials a:hover{transform:translateY(-6px)}
+    .socials a:hover{transform:translateY(-6px);box-shadow: 0 12px 28px rgba(120,100,150,0.1);}
 
     /* floating shapes decor */
     .float-shape{position:absolute;border-radius:50%;filter:blur(20px);opacity:0.8;transform:translate3d(0,0,0);pointer-events:none}
@@ -884,13 +837,15 @@ gn:center}
         display: flex; /* hamburger zichtbaar */
     }
 
-    .nav-links {
+    .nav-links .lang a {
         display: none; /* menu dicht */
         flex-direction: column;
         width: 100%;
         background:linear-gradient(to bottom, purple, rgba(128, 0, 128, 0));
-        padding: 20px;
+        padding: 8px 12px;
         gap: 15px;
+        text-align: center;
+        border: 1px solid #ccc;
     }
 
     /* Wanneer menu open is */
@@ -898,25 +853,12 @@ gn:center}
         display: flex;
     }
 
-    /* Taal knoppen in mobiel menu */
-    .nav-links .lang a {
-        background: #eee;
-        border: 1px solid #ccc;
-        padding: 8px 12px;
-        border-radius: 4px;
-        text-align: center;
-        width: 100%;
-    }
-
     .nav-links .lang a:hover {
         background: #ddd;
     }
 }
 
-
-    /* ---------------------- */
 /* 🌸 Over mij Sectie */
-/* ---------------------- */
 
 .about-section {
   padding-top: 90px;
@@ -1737,6 +1679,7 @@ window.addEventListener("load", function() {
 </script>
 </body>
 </html>
+
 
 
 
