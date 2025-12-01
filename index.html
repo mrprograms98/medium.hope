@@ -29,6 +29,7 @@
     html,body{height:100%}
     body{
       margin:0;
+      padding: 0;
       font-family: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       color:var(--text);
       background:
@@ -45,7 +46,10 @@
 
     /* layout */
     .container{max-width:var(--max-width);margin:0 auto;padding:28px align-items:center;}
-
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
 /* PRELOADER */
 .preloader {
     position: fixed;
@@ -190,17 +194,12 @@ main {
 }
 
     /* hamburger */
-    /* hamburger knop altijd boven menu */
-.hamburger {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999; /* boven alles */
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: background var(--transition);
-}
-
+    .hamburger{
+      display:none;
+      background:transparent;border:0;padding:8px;border-radius:10px;cursor:pointer;position:relative;
+      -webkit-tap-highlight-color: transparent;
+      transition: background var(--transition);
+    }
     /* visible pill behind bars (for contrast) */
     .hamburger .pill{
       position:absolute;inset:0;border-radius:12px;background:transparent;transition:background var(--transition),box-shadow var(--transition);box-shadow: 0 4px 18px rgba(0,0,0,0.15);
@@ -209,7 +208,11 @@ main {
     .hamburger .bars{position:relative;display:inline-block;padding:6px 10px}
     .hamburger .bar{display:block;width:20px;height:2px;background:var(--text);margin:4px 0;border-radius:2px;transition:transform var(--transition),opacity var(--transition),background var(--transition)}
     /* open state */
-
+    .hamburger[aria-expanded="true"] {
+  background: rgba(168,146,201,0.18);
+  box-shadow: 0 0 0 4px rgba(168,146,201,0.25);
+  z-index: 9999; /* zichtbaar boven mobile nav */
+}
     
     .hamburger[aria-expanded="true"] .bar:nth-child(3){ transform: translateY(-6px) rotate(-45deg); background:var(--lavender-600)}
   
@@ -234,6 +237,15 @@ main {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
+}
+
+/* hamburger knop altijd boven menu */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* boven alles */
+  cursor: pointer;
 }
 
 /* opties zoals in header */
@@ -330,6 +342,7 @@ main {
     section{
     padding:72px 0;
     position: relative;
+  padding: 72px 0;
 }
 
 /* zachte elegante lijn tussen secties */
@@ -647,6 +660,10 @@ textarea {
   }
 }
 
+
+textarea, input {
+  width: 100%;
+}
 .footer {
   background: linear-gradient(to top, #8e44ad, #ffffff);
   margin: 0; /* Verwijder marges */
@@ -814,19 +831,35 @@ textarea {
 
 /* Responsive */
 @media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+  .socials {
+    justify-content: center;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
   .location-wrapper {
     grid-template-columns: 1fr;
   }
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 30px;
   }
   .footer-column {
     margin-bottom: 30px;
   }
 }
-gn:center}   
+gn:center}
+
+    /* socials */
+    .socials{display:flex;gap:12px}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.9);text-decoration:none;color:var(--lavender-600);box-shadow:0 6px 18px rgba(120,100,150,0.04);transition:transform var(--transition)}
+    .socials a:hover{transform:translateY(-6px)}
 
     /* floating shapes decor */
     .float-shape{position:absolute;border-radius:50%;filter:blur(20px);opacity:0.8;transform:translate3d(0,0,0);pointer-events:none}
@@ -834,23 +867,52 @@ gn:center}
     .float-2{width:140px;height:140px;right:-60px;bottom:8%;background:linear-gradient(135deg, rgba(197,154,68,0.12), rgba(168,146,201,0.06));animation:float 11s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-14px)}100%{transform:translateY(0)}}
 @media (min-width: 900px) {
-    .nav {
+    .hamburger {
+        display: none !important;
+    }
+
+    nav.primary {
         display: block !important;
     }
 }
 @media (max-width: 900px) {
+    nav.primary {
+        display: none; /* desktop menu weg */
+    }
+
     .hamburger {
-        display: flex !important;
+        display: flex; /* hamburger zichtbaar */
     }
 
-    .nav {
-        display: none;
+    .nav-links {
+        display: none; /* menu dicht */
+        flex-direction: column;
+        width: 100%;
+        background:linear-gradient(to bottom, purple, rgba(128, 0, 128, 0));
+        padding: 20px;
+        gap: 15px;
     }
 
-    .nav.active {
-        display: block;
+    /* Wanneer menu open is */
+    .nav-links.open {
+        display: flex;
+    }
+
+    /* Taal knoppen in mobiel menu */
+    .nav-links .lang a {
+        background: #eee;
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+        border-radius: 4px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links .lang a:hover {
+        background: #ddd;
     }
 }
+
 
     /* ---------------------- */
 /* 🌸 Over mij Sectie */
@@ -1025,7 +1087,7 @@ gn:center}
         display: none; /* menu dicht */
         flex-direction: column;
         width: 100%;
-        background: white;
+        background:linear-gradient(to bottom, purple, rgba(128, 0, 128, 0));
         padding: 20px;
         gap: 15px;
     }
@@ -1675,6 +1737,7 @@ window.addEventListener("load", function() {
 </script>
 </body>
 </html>
+
 
 
 
