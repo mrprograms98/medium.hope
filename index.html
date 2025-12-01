@@ -49,7 +49,52 @@
     margin: 0;
     font-family: Arial, sans-serif;
   }
+/* PRELOADER */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f7f5ef; /* licht beige / off-white */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
 
+.preloader-content {
+    text-align: center;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.preloader img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.preloader h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #3a3a3a;
+}
+
+/* Fade-in animatie */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Verdwijn animatie */
+.preloader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
 header {
     top: 0;
     width: 100%;
@@ -1148,7 +1193,12 @@ gn:center}
   </style>
 </head>
 <body>
-
+<div class="preloader">
+    <div class="preloader-content">
+        <img src="medium.hope.png">
+        <h2>Welkom</h2>
+    </div>
+</div>
   <!-- decorative -->
   <div class="float-shape float-1" aria-hidden="true"></div>
   <div class="float-shape float-2" aria-hidden="true"></div>
@@ -1634,6 +1684,7 @@ mobileLinks.forEach(a => a.addEventListener('click', ()=> toggleMobileNav(false)
 </script>
 </body>
 </html>
+
 
 
 
