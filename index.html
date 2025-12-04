@@ -112,8 +112,8 @@ header {
     backdrop-filter: blur(14px);
     background: linear-gradient(to bottom, purple, rgba(128, 0, 128, 0)); /* paars naar transparant */
     box-shadow: 0 4px 18px rgba(0,0,0,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.4);
-    color: white !important;
+    border-bottom: none;
+    color: var(--gold);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,11 +121,8 @@ header {
     z-index: 999;
   }
 header, 
-header a,
-header a:visited,
-header a:active,
 header a:hover {
-    color: #ffffff !important;
+    color: #fff;
 }
 
 .nav-inner {
@@ -1779,6 +1776,7 @@ window.addEventListener('resize', () => {
 
 </body>
 </html>
+
 
 
 
