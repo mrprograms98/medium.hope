@@ -13,6 +13,7 @@
   --accent: linear-gradient(90deg,#b89ad0,#a07ad0);
   --focus: 4px rgba(168,146,201,0.18);
   --transition: 220ms cubic-bezier(.2,.9,.2,1);
+  --lavender-700: #5f4a87;
 }
 
 *{box-sizing:border-box}
@@ -1086,5 +1087,6 @@ footer::after {
   }
 
 }
+
 
 
