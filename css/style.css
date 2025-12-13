@@ -26,7 +26,7 @@ body{
   background:
     radial-gradient(1400px 700px at 8% 12%, rgba(168,146,201,0.18), transparent 6%), /* paarse radial sterker */
     radial-gradient(1000px 500px at 92% 86%, rgba(197,154,68,0.08), transparent 6%), /* gouden radial sterker */
-    #f0e8f5; /* var(--bg);
+    #f0e8f5; 
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.65;
@@ -1086,4 +1086,5 @@ footer::after {
   }
 
 }
+
 
