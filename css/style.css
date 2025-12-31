@@ -962,11 +962,17 @@ footer::after {
     transition: max-height 0.3s ease-out;
   }    
   .nav-menu.active {
-    max-height: 300px; /* Voldoende hoogte om menu te tonen */
+    max-height: 500px; /* Voldoende hoogte om menu te tonen */
   }
   .nav-menu ul {
     flex-direction: column;
     width: 100%;
+  }
+  .nav-menu ul li.lang-btn a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
   }
   body {
     line-height: 1.75;
@@ -1087,6 +1093,7 @@ footer::after {
   }
 
 }
+
 
 
 
